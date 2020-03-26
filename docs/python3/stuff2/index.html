@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+                    <h1>Python 3</h1>
+                    <p>
+                        Was it worth the wait?
+                    </p>
+                    <p class="fragment fade-in">
+                        ... and why we wait at all? 
+                    </p>
+                    <p class="fragment fade-in">
+                        ... (plus some context)
+                    </p>
+                    <small class="fragment fade-in">
+                        Presented by Steinar Sturlaugsson, March 2020
+                    </small>
+                </section>
+
+				<section>
+                    <section>
+                    <h3>Before we get to that</h3>
+                    <p class="fragment fade-in">
+                        Who am I?
+                    </p>
+                    </section>
+                    <section>
+                        <p>A software developer and architect</p>
+                    </section>
+                    <section>
+                        <p>Work at SciLifeLab Uppsala (SNP&SEQ)</p>
+                    </section>
+                    <section>
+                        <p>Worked mostly with Python and C#</p>
+                    </section>
+                    <section>
+                        <p>I love Python <span "fragment fade-in">but sometimes I miss static typing</span></p>
+                    </section>
+                    <section>
+                        <h3>Previously I've worked in different industries</h3>
+
+                        <p class="fragment fade-in">Health and Science</p>
+                        <p class="fragment fade-in">Banking and finances</p>
+                        <p class="fragment fade-in">Video games!</p>
+                        <small class="fragment fade-in">... but only the boring part</small>
+                    </section>
+                    <section>
+                        <p>I worked for CCP, maker of EvE Online</p>
+                        <p class="fragment fade-in">Perhaps the heaviest user of Python in the gaming industry</p>
+                        <p class="fragment fade-in">Been in use there since the early 2000s</p>
+                        <small class="fragment fade-in">(I doubt that they will ever upgrade.)</small>
+                    </section>
+                    <section>
+                        <h2>My department primarily used C#</h2>
+                        <small class="fragment fade-in">(We upgraded constantly.)</small>
+                    </section>
+                </section>
+
+				<section>
+                    <section>
+                        <h1>History lesson!</h1>
+                    </section>
+                    <section>
+                        <h2>Year 0 (1989)</h2>
+                    </section>
+                    <section>
+                        <h2>A dutch guy named Guido has a problem</h2>
+                    </section>
+                    <section>
+                        <q>I realized that the development of system administration utilities in C was taking too long.</q>
+                    </section>
+                    <section>
+                        <q>I was familiar with Perl 3, but it was even more tied to Unix than the Bourne shell.</q>
+                    </section>
+                    <section>
+                        <q>I also didn’t like Perl’s syntax -- my tastes in programming language syntax were strongly influenced by [...] <span class="fragment highlight-blue">Algol 60</span>, <span class="fragment highlight-blue">Pascal</span>, <span class="fragment highlight-blue">Algol 68</span> [and] <span class="fragment highlight-blue">ABC</span></q>
+                        <small>[GUIDO1]</small>
+                    </section>
+                    <section>
+                        <h2>Year 2 (1991)</h2>
+                        <p class="fragment fade-in">Python 0.9.0 is released to alt.sources</p>
+                        <span class="fragment fade-in">
+                            <q>This is Python, an extensible interpreted programming language that
+                                combines remarkable power with very clear syntax.</q>
+                            <br>
+                            <small>From the README</small>
+                        </span>
+                    </section>
+                    <section>
+                        <h2>Year 11 (2000)</h2>
+                        <p>Python 1.6.0 is shipped</p>
+                    </section>
+                    <section>
+                        <q>We've added a new fundamental datatype, the Unicode string</q> <small>[1.6 release notes]</small>
+                    </section>
+                    <section>
+                        <p>That was a nice thought</p>
+                        <p class="fragment fade-in">Going 100% unicode at this point would have been preferable</p>
+                    </section>
+                    <section>
+                        Java, for example, was 100% unicode from the first specification <small>[JAVA1]</small>
+                    </section>
+                    <section>
+                        <p>
+                        Perhaps they would have fixed it if they knew where they were headed 
+                        </p>
+                        <img width="50%" class="fragment fade-in" data-src="growth.png">
+                    </section>
+                    <section>
+                        <h2>Year 11 (2000)</h2>
+                        <p>Python 2.0 is shipped</p>
+                        <img class="fragment fade-in" data-src="fry1.jpg">
+                    </section>
+                    <section>
+                        <img data-src="fry2.png">
+                    </section>
+                    <section>
+                        <h2>Year 19 (2008)</h2>
+                        <p>Python 2.6 lands on our hard drives!</p>
+                    </section>
+                    <section>
+                        <h2>Can you guess what came next?</h2>
+                    </section>
+                    <section>
+                        <h2>Same year (2008)</h2>
+                        <p class="fragment fade-in">The protagonist of the story...</p>
+                        <h3 class="fragment fade-in">Python 3</h3>
+                    </section>
+                    <section>
+                        <h1>Year 21 (2010)</h2>
+                        <p class="fragment fade-in">The antagonist?</p>
+                        <h2 class="fragment fade-in">Python 2.7</h3>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Python <span class="fragment highlight-blue">2</span> vs Python <span class="fragment highlight-blue">3</span><h1>
+                    </section>
+                    <section>
+                        Let's ask python.org
+                    </section>
+                    <section>
+                        <p>2010</p>
+                        <span>
+                        <q>
+                            Python 2.x is the <span class="fragment highlight-blue">status quo</span>, Python 3.x is the <span class="fragment highlight-blue">shiny new thing</span>.
+                        </q> <small>[PYORG1]</small>
+                        </span>
+                    </section>
+                    <section>
+                        <p>2012</p>
+                        <span>
+                            <q>Python 2.x is the <span class="fragment highlight-blue">status quo</span>, Python 3.x is the <span class="fragment highlight-blue">present and future of the language</span></q> <small>[PYORG2]</small>
+                        </span>
+                    </section>
+                    <section>
+                        <p>2014</p>
+                        <span>
+                            <q>Python 2.x is <span class="fragment highlight-blue">legacy</span>, Python 3.x is the <span class="fragment highlight-blue">present and future of the language</span></q> <small>[PYORG3]</small>
+                        </span>
+                    </section>
+                    <section>
+                        <p>2014</p>
+                        <q class="fragment zoom-in">[...] legacy [...]</q>
+                    </section>
+                    <section>
+                        6 years later, many of us are still using 2.7 
+                        <p class="fragment fade-in">... still, with a lot of backports and helpers.</p>
+                    </section>
+                    <section>
+                        <h2>Why?</h2>
+                    </section>
+                    <section>
+                        <h2>breaking changes</h2>
+                    </section>
+
+                    <section>
+                        <q>[...] while there is a large common subset between Python 2.7 and Python 3, [...]  some other changes (<span class="fragment highlight-blue">notably those associated with Unicode handling</span>) may require careful consideration, and preferably robust automated regression test suites, to migrate effectively.</q> <small>[WHAT]</small>
+                        <small>From "What's New in Python 2.7"</small>
+                    </section>
+                    <section>
+                        So Python 2.7 was released for those that weren't able to upgrade directly.
+                        <p class="fragment fade-in">If possible, we shouldn't have built new projects on that.</p>
+                    </section>
+                    <section>
+                        <h2>Present</h2>
+                        <p class="fragment fade-in">In January this year, Python 2 was <span class="fragment highlight-blue">sunset</span></p>
+                    </section>
+                    <section>
+                        <q>If people find catastrophic security problems in Python 2, or in <span class="fragment highlight-blue">software written in Python 2</span>, then most volunteers will not help fix them. [...] fewer and fewer volunteers will be able to help you. You will lose chances to use good tools because they will only run on Python 3 [...]</q> <small>[SUNSET]</small>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>How do I port?</h2>
+                    </section>
+
+                    <section>
+                        Your favourite library now probably supports Python 3
+                        <p class="fragment fade-in">They had 12 years to prepare it</p>
+                        <p class="fragment fade-in">Some didn't support Python 3 until very recently</p>
+                    </section>
+                    <section>
+                        So the problem should generally only be in updating requirements and your code. 
+                    </section>
+
+                    <section>
+                        I recently did this for a large project
+                        <p class="fragment fade-in">Common LIMS (in development) is built on a project written in Python 2</p>
+                    </section>
+                    <section>
+                        Porting legacy code can be a challenge
+                        <p class="fragment fade-in">You need to be patient</p>
+                        <p class="fragment fade-in">You will have to handle a lot of complexity</p>
+                        <p class="fragment fade-in">There are many tools to help though</p>
+                    </section>
+                    <section>
+                        <h2>Strategies<h2>
+                    </section>
+                    <section>
+                        <h2>Don't port</h2>
+                        <p class="fragment fade-in">Run two interpreters at the same time</p>
+                        <p class="fragment fade-in">Communicate via e.g. HTTP or IPC</p>
+                        <p class="fragment fade-in">I wouldn't do this unless porting will be expensive</p>
+                    </section>
+                    <section>
+                        <h2>Branch</h2>
+                        <p class="fragment fade-in">I recommend branching off your master branch and give it some time</p>
+                        <p class="fragment fade-in">Merging regularly from master</p>
+                    </section>
+                    <section>
+                        <h2>Make sure you have tests!<h2>
+                    </section>
+                    <section>
+                        Consider making the code support both versions at the beginning of the process 
+                        <pre class="fragment fade-in">from __future__ import ...</pre>
+                        <pre class="fragment fade-in">import six</pre>
+                        <small class="fragment fade-in">Recipes at https://python-future.org/compatible_idioms.html</small>
+                        <p class="fragment fade-in">Use a linter to check for compatibility issues</p>
+                    </section>
+                    <section>
+                        <h2>2to3</h2>
+                        <p class="fragment fade-in">Automatic conversion</p>
+                        <p class="fragment fade-in">Breaks compatibility with Python 2</p>
+                    </section>
+                    <section>
+                        <h2>Warning</h2>
+                        <p class="fragment fade-in">Linters may give you bad advice</p>
+                        <p class="fragment fade-in">2to3 may convert incorrectly</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>So was it worth the wait?</h2>
+                    </section>
+                    <section>
+                        Unicode is much simpler in 3+
+                    </section>
+                    <section>
+                        <p>The language is more consistent.</p>
+                    </section>
+                    <section>
+                        All classes are "new-style"
+                    </section>
+                    <section>
+                        If you didn't know about old-style classes, now you don't need to.
+                    </section>
+                    <section>
+                        <p><code>print</code> is just a function.</p>
+                    </section>
+                    <section>
+                        If you expect an iterator you generally get one
+                        <p class="fragment fade-in">No more <code>xrange</code></p>
+                    </section>
+                    <section>
+                        <pre>
+                        <code>
+for i in range(100000000000):
+    print(i)
+                        </code>
+                        </pre>
+                    </section>
+                    <section>
+1/2 returns a float!
+                    </section>
+                    <section>
+                        Function annotations
+
+                        <pre>
+                        <code>
+def compile(source: <span class="fragment highlight-blue">"something compilable"</span>,
+            filename: "where the compilable thing comes from",
+            mode: "is this a single statement or a suite?"):
+                        </code>
+                        </pre>
+
+                        <pre class="fragment fade-in">
+                        <code>
+def haul(item: <span class="fragment highlight-blue">Haulable</span>, *vargs: PackAnimal) <span class="fragment highlight-blue">-> Distance</span>:
+    ...
+                        </code>
+                        </pre>
+                    </section>
+                    <section>
+Extended iterable unpacking
+
+                    <pre class="fragment fade-in"><code>>>> a, b = [0, 1]  # OLD
+                    
+(0, 1)
+                    </code></pre>
+                    <pre class="fragment fade-in"><code>>>> a, b, *c = range(10)  # NEW
+
+(0, 1, [2, 3, 4, 5, 6, 7, 8, 9])
+                    </code></pre>
+                    <pre class="fragment fade-in"><code>>>> *a, b, c = range(10)
+                    
+([0, 1, 2, 3, 4, 5, 6, 7], 8, 9)
+                    </code></pre>
+                    <pre class="fragment fade-in"><code>>>> a, *b, c = range(10)
+                    
+(0, [1, 2, 3, 4, 5, 6, 7, 8], 9)                    
+</code></pre>
+                    </section>
+                    <section>
+                        Simpler inheritance syntax
+                    <pre class="fragment fade-in"><code>
+def __init__(self):
+    super(ClassName, self).__init__()
+</code></pre>
+
+
+<pre class="fragment fade-in"><code>
+def __init__(self):
+    super().__init__()
+</code></pre>
+                    </section>
+
+                    <section>
+                        Generator delegation with <code>yield from</code>
+<pre><code>
+>>> def g(x):
+...     yield from range(x, 0, -1)
+...     yield from range(x)
+...
+>>> list(g(5))
+[5, 4, 3, 2, 1, 0, 1, 2, 3, 4]
+</code></pre>
+                    </section>
+
+                    <section>
+                        Builtin virtual envs (venv)
+                    </section>
+
+                    <section>
+                    Simpler asynchronous programming with async/await
+                    <pre><code>
+import asyncio
+
+async def main():
+    print('Hello ...')
+    await asyncio.sleep(1)
+    print('... World!')
+
+# Python 3.7+
+asyncio.run(main())
+                    </code></pre>
+                    </section>
+                    <section>
+                        Object oriented filesystem paths with pathlib
+
+                    <pre><code>
+>>> p = Path('.')
+>>> [x for x in p.iterdir() if x.is_dir()]
+[PosixPath('.hg'), PosixPath('docs'), PosixPath('dist'),
+ PosixPath('__pycache__'), PosixPath('build')]
+                    </code></pre>
+
+                    </section>
+                    <section>
+                        etc.
+                        etc.
+                        etc.
+                    </section>
+                    <section>
+                        7 minor versions of improvements
+                    </section>
+
+                    <section>
+                        <h2>So again, was it worth the wait?</h2>
+                        <p class="fragment fade-in">Yes, in my opinion</p>
+                        <p class="fragment fade-in">But we should have done it sooner</p>
+                    </section>
+
+                    <section>
+
+                    <pre><code>
+action = "listening"
+f"Thank you for {action}"
+                    </code></pre>
+                    </section>
+
+
+                    <section>
+                        <h3>References</h3>
+                        <small>
+                        <ul>
+                            <li>GUIDO1: http://python-history.blogspot.com/2009/01/personal-history-part-1-cwi.html</li>
+                            <li>GUIDO2 http://python-history.blogspot.com/2009/01/brief-timeline-of-python.html</li>
+                            <li>RM091: https://www.python.org/download/releases/early/</li>
+                            <li>PYORG1: https://web.archive.org/web/20100715080438/https://wiki.python.org/moin/Python2orPython3</li>
+                            <li>PYORG2: https://web.archive.org/web/20120122055626/https://wiki.python.org/moin/Python2orPython3</li>
+                            <li>PYORG3: https://web.archive.org/web/20140208061201/https://wiki.python.org/moin/Python2orPython3</li>
+                            <li>WHAT: https://docs.python.org/dev/whatsnew/2.7.html</li>
+                            <li>STACK1: https://stackoverflow.blog/2017/09/06/incredible-growth-python/</li>
+                            <li>JAVA1: https://docs.oracle.com/javase/tutorial/i18n/text/unicode.html</li>
+                            <li>SUNSET: https://www.python.org/doc/sunset-python-2/</li>
+                            <li>Freely sourced from the release notes on www.python.org for each version</li>
+                        </ul>
+                        </small>
+                    </section>
+
+                </section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					//{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
